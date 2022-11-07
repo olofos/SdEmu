@@ -27,9 +27,11 @@ All data access is handled through the `SdEmuDataInterface` interface. The inter
 
 ## Examples
 
-The directory `olofos/examples/` contains two examples: 
+The directory `olofos/example/` contains two examples: 
 * `Spi.java` gives a simple example of how the SPI interface can be used
 * `SdServer.java` uses the byte level interface to implement a simple TCP server which listens for commands. 
   
-  The `examples/client/` directory contains a C implementation of a TCP client which talks to the TCP server and uses Elm ChaN's [FatFS](http://elm-chan.org/fsw/ff/00index_e.html) library to read and write files to a FAT file system.
+  The `example/client/` directory contains a C implementation of a TCP client which talks to the TCP server and uses Elm ChaN's [FatFS](http://elm-chan.org/fsw/ff/00index_e.html) library to read and write files to a FAT file system.
+  
+  The `example/images` contains two simple FAT12 disk images that can be used with the seconds example above. The file `disk.img` is made with one sector per cluster so that all files are read and written using single block reads and writes, while `disk2.img` is made with four sectors per cluster, so that multi-block reads and writes can be used.
   
