@@ -58,9 +58,8 @@ class SdServerThread extends Thread {
 
                     case "CS":
                         if (inArray[1].equals("ASSERT")) {
-                            sd.assertCS();
+                            sd.clear();
                         } else {
-                            sd.deassertCS();
                         }
                         break;
 

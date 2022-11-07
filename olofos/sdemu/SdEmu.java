@@ -50,7 +50,6 @@ public class SdEmu {
     private static final int ACMD41 = 41 | ACMD;
 
     private final Queue<Integer> output;
-    private boolean csAsserted;
     private final LinkedList<Integer> cmdBuf;
     private State state;
     private int readAddress;
@@ -64,7 +63,6 @@ public class SdEmu {
 
     public SdEmu(SdEmuDataInterface data) {
         this.data = data;
-        csAsserted = false;
         cmdBuf = new LinkedList<>();
         output = new ArrayDeque<>();
         writeBuffer = new LinkedList<>();
@@ -419,20 +417,6 @@ public class SdEmu {
     public void clear() {
         output.clear();
         cmdBuf.clear();
-    }
-
-    public void assertCS() {
-        csAsserted = true;
-    }
-
-    public void deassertCS() {
-        csAsserted = false;
-        output.clear();
-        cmdBuf.clear();
-    }
-
-    public boolean isHighZ() {
-        return !csAsserted;
     }
 
     private int getOutput() {
